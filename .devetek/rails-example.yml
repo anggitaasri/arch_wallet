@@ -1,0 +1,24 @@
+# Cloud Devetek Standard Definition v0.0.1-alpha.0 Go Example
+version: v0.0.1-alpha.0
+
+setup:
+  language:
+    name: ruby
+    version: 3.3.6
+
+build:
+  target:
+    ## -> Build app non docker (tar.gz)
+    machine: # exec sequentially
+      workdir: .
+      steps:
+        - name: "build application"
+          command:
+            - cp env.example .env
+            - bundle install
+            - bin/rails db:migrate
+
+run:
+  name: rails-example
+  description: Ruby rails example
+  command: "bin/rails server"
