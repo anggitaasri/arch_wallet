@@ -22,4 +22,5 @@ build:
 run:
   name: rails-example
   description: Ruby rails example
+  port: 8080
   command: "bin/rails server --port 8080"
